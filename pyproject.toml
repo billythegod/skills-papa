@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "skills-papa"
+version = "0.3.3"
+description = "Safely manage and adapt Agent Skills across Codex, Claude Code, OpenCode, and universal skill roots."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6.0.2,<7"]
+authors = [{ name = "billythegod" }]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<10"]
+
+[project.scripts]
+skills-papa = "skills_papa.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/skills_papa"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
